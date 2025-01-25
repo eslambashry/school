@@ -16,6 +16,9 @@
     app.use(json({ limit: '10mb' }))
     app.use(cors())
 
+    app.get('/', (req, res) => {
+        res.send('Back end work 😄'); 
+      });
     const url = `mongodb+srv://school:school123@school.kdc3v.mongodb.net/?retryWrites=true&w=majority&appName=School`
     // const url=`mongodb://localhost:27017/school`
 

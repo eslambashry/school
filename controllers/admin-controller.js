@@ -82,7 +82,7 @@ export const adminRegister = async (req, res) => {
 
 export const adminLogIn = async (req, res) => {
     if (req.body.email && req.body.password) {
-        let admin = await findOne({ email: req.body.email });
+        let admin = await Admin.findOne({ email: req.body.email });
         if (admin) {
             if (req.body.password === admin.password) {
                 admin.password = undefined;

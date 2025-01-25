@@ -6,9 +6,10 @@
     const app = express()
     import Routes from "./routes/route.js"
     import color from "@colors/colors"
+import router from "./routes/route.js"
     const PORT = process.env.PORT || 5000
 
-    app.get('/', (req, res) => {
+        app.get('/', (req, res) => {
         res.send('Back end work 😄'); 
       });
     config();

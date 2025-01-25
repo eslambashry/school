@@ -55,7 +55,7 @@ import Complain from '../models/complainSchema.js';
 //     }
 // };
 
-const adminRegister = async (req, res) => {
+export const adminRegister = async (req, res) => {
     try {
         const admin = new Admin({
             ...req.body
@@ -80,7 +80,7 @@ const adminRegister = async (req, res) => {
     }
 };
 
-const adminLogIn = async (req, res) => {
+export const adminLogIn = async (req, res) => {
     if (req.body.email && req.body.password) {
         let admin = await findOne({ email: req.body.email });
         if (admin) {
@@ -98,7 +98,7 @@ const adminLogIn = async (req, res) => {
     }
 };
 
-const getAdminDetail = async (req, res) => {
+export const getAdminDetail = async (req, res) => {
     try {
         let admin = await findById(req.params.id);
         if (admin) {
@@ -149,4 +149,3 @@ const getAdminDetail = async (req, res) => {
 
 // module.exports = { adminRegister, adminLogIn, getAdminDetail, deleteAdmin, updateAdmin };
 
-export default { adminRegister, adminLogIn, getAdminDetail };

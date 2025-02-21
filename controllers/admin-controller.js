@@ -61,20 +61,8 @@ export const adminRegister = async (req, res) => {
             ...req.body
         });
 
-        const existingAdminByEmail = await findOne({ email: req.body.email });
-        const existingSchool = await findOne({ schoolName: req.body.schoolName });
-
-        if (existingAdminByEmail) {
-            res.send({ message: 'Email already exists' });
-        }
-        else if (existingSchool) {
-            res.send({ message: 'School name already exists' });
-        }
-        else {
             let result = await admin.save();
-            result.password = undefined;
-            res.send(result);
-        }
+            res.status(201).json({message:"Done",result});
     } catch (err) {
         res.status(500).json(err);
     }
